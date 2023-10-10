@@ -44,10 +44,20 @@ class Video {
     }
 }
 
-$collection = new Collection([
+$collection = new VideosCollection([
     new Video('Hexa Flamengo 2019', 100),
     new Video('Penta Brasil 2002', 200),
     new Video('Copa do Brasil 2004', 500),
 ]);
 
-dd($collection->sum('length'));
+// dd($collection->sum('length'));
+
+class VideosCollection extends Collection {
+    public function length() {
+        return $this->sum('length');
+    }
+}
+
+$totalVideos = (new VideosCollection())->length();
+
+dd($totalVideos);
