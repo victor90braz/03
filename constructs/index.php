@@ -18,23 +18,7 @@ class SpecialtyCoffeeMaker extends CoffeMaker {
 
 // (new SpecialtyCoffeeMaker())->brewLatte();
 
-class Collection {
-
-    protected array $items;
-
-    function __construct($items = []) {
-        $this->items = $items;
-    }
-
-    public function sum($key) {
-        return array_sum(array_map(function($item) use ($key) {
-            return $item->$key;
-        }, $this->items));
-    }
-}
-
 class Video {
-
     public $title;
     public $length;
 
@@ -44,13 +28,17 @@ class Video {
     }
 }
 
-$collection = new VideosCollection([
-    new Video('Hexa Flamengo 2019', 100),
-    new Video('Penta Brasil 2002', 200),
-    new Video('Copa do Brasil 2004', 500),
-]);
+class Collection {
+    protected array $items;
 
-// dd($collection->sum('length'));
+    public function __construct($items = []) {
+        $this->items = $items;
+    }
+
+    public function sum($key) {
+        return array_sum(array_map(fn($item) => $item->$key, $this->items));
+    }
+}
 
 class VideosCollection extends Collection {
     public function length() {
@@ -58,6 +46,18 @@ class VideosCollection extends Collection {
     }
 }
 
-$totalVideos = (new VideosCollection())->length();
+// Create Video objects
+$videos = [
+    new Video('Hexa Flamengo 2019', 100),
+    new Video('Penta Brasil 2002', 200),
+    new Video('Copa do Brasil 2004', 500),
+    new Video('Copa do Brasil 2004', 3000),
+];
 
-dd($totalVideos);
+// Create a VideosCollection instance with the Video objects
+$collection = new VideosCollection($videos);
+
+// Calculate the total length of videos
+$totalVideosLength = $collection->length();
+
+dd($totalVideosLength);
