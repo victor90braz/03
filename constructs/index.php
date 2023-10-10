@@ -60,4 +60,31 @@ $collection = new VideosCollection($videos);
 // Calculate the total length of videos
 $totalVideosLength = $collection->length();
 
-dd($totalVideosLength);
+// dd($totalVideosLength);
+
+
+class ArchievementType {
+
+    public function name() {
+        // Archievement
+    }
+
+    public function difficult() {
+        return 'intermidiate';
+    }
+
+    public function icon() {
+        return '/images/';
+    }
+}
+
+class FirstThousandPoints extends ArchievementType {
+
+    public function qualifier($user) {
+
+    }
+
+    public function name() {
+        return 'Welcome Aboard';
+    }
+}
