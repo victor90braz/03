@@ -36,7 +36,7 @@ class Collection {
     }
 
     public function sum($key) {
-        return array_sum(array_map(fn($item) => $item->$key, $this->items));
+        return array_sum(array_column($this->items, $key));
     }
 }
 
