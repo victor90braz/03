@@ -24,7 +24,7 @@ php -S localhost:8888 -t constructs
 
 ## GitHub Repository
 
-The project is hosted on GitHub. You can find the repository [here](https://github.com/victor90braz/02-object-oriented-principles-php).
+The project is hosted on GitHub. You can find the repository [here](https://github.com/victor90braz/03-inheritance.git).
 
 ### Team Class
 
