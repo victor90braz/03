@@ -8,4 +8,12 @@ class CoffeMaker {
     }
 }
 
-(new CoffeMaker())->brew();
+// (new CoffeMaker())->brew();
+
+class SpecialtyCoffeeMaker extends CoffeMaker {
+    public function brewLatte() {
+        dd("Brewing a latte");
+    }
+}
+
+(new SpecialtyCoffeeMaker())->brewLatte();
